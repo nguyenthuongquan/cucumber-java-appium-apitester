@@ -11,16 +11,16 @@ import org.testng.annotations.Test;
 
 @CucumberOptions(
 
-    //tags = "@TC02-002"
-    monochrome = true,
-    features = "src/test/java/cucumber/features",
-    glue = "cucumber.steps",
-    publish = true,
-    plugin = {
-            "pretty",
-            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-            "timeline:reports/thread/",
-            "rerun:target/failedRerun.txt"}
+        tags = "not @skip_scenario",
+        monochrome = true,
+        features = "src/test/java/cucumber/features",
+        glue = "cucumber.steps",
+        publish = true,
+        plugin = {
+                "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "timeline:reports/thread/",
+                "rerun:target/failedRerun.txt"}
 )
 public class TestRunner extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
@@ -30,14 +30,15 @@ public class TestRunner extends BaseTest {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
     }
 
-    @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios")
-    public void scenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
-        testNGCucumberRunner.runScenario(pickleWrapper.getPickle());
-    }
-
     @DataProvider
     public Object[][] scenarios() {
         return testNGCucumberRunner.provideScenarios();
+    }
+
+
+    @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios")
+    public void scenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
+        testNGCucumberRunner.runScenario(pickleWrapper.getPickle());
     }
 
     @AfterClass(alwaysRun = true)

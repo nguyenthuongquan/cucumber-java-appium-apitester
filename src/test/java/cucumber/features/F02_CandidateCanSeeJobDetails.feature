@@ -1,6 +1,7 @@
 @Candidate
 Feature: F02 - Candidate can see the job's details.
 
+  @TC02-001
   Scenario Outline: TC02-001 Candidate opens a job's page and see its details.
     Given Candidate is on the jobs listing screen
     When Candidate opens a job which has index of <index>
@@ -10,7 +11,7 @@ Feature: F02 - Candidate can see the job's details.
       | 0     |
       | 1     |
 
-  @TC02-002
+  @TC02-002 @skip_scenario
   Scenario: TC02-002 Candidate opens a job's page and see its details.
     Given Candidate is on the jobs listing screen
     When Candidate opens a job which has index of 1
