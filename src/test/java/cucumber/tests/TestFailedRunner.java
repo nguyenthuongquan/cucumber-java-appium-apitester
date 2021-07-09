@@ -10,10 +10,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-
-    //tags = "@TC02-002"
     monochrome = true,
-    features = "src/test/java/cucumber/features",
+    features = "target/failedRerun.txt",
     glue = "cucumber.steps",
     publish = true,
     plugin = {
@@ -22,7 +20,7 @@ import org.testng.annotations.Test;
             "timeline:reports/thread/",
             "rerun:target/failedRerun.txt"}
 )
-public class TestRunner extends BaseTest {
+public class TestFailedRunner extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass(alwaysRun = true)
