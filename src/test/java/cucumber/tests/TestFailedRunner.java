@@ -10,8 +10,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 @CucumberOptions(
-    monochrome = true,
-    features = "target/failedRerun.txt",
+    features = "@target/failedRerun.txt",
     glue = "cucumber.steps",
     publish = true,
     plugin = {
@@ -20,22 +19,25 @@ import org.testng.annotations.Test;
             "timeline:reports/thread/",
             "rerun:target/failedRerun.txt"}
 )
+
 public class TestFailedRunner extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
+    public static String scenarioName;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() {
         testNGCucumberRunner = new TestNGCucumberRunner(this.getClass());
     }
 
-    @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios")
-    public void scenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
-        testNGCucumberRunner.runScenario(pickleWrapper.getPickle());
-    }
-
     @DataProvider
     public Object[][] scenarios() {
         return testNGCucumberRunner.provideScenarios();
+    }
+
+    @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios")
+    public void scenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
+        scenarioName = pickleWrapper.getPickle().getName();
+        testNGCucumberRunner.runScenario(pickleWrapper.getPickle());
     }
 
     @AfterClass(alwaysRun = true)
