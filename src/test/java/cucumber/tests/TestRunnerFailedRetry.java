@@ -8,6 +8,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import utilities.FileUtil;
+
+import java.io.IOException;
 
 @CucumberOptions(
     features = "@target/failedRerun.txt",
@@ -17,12 +20,12 @@ import org.testng.annotations.Test;
             "pretty",
             "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
             "timeline:reports/thread/",
+            "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
             "rerun:target/failedRerun.txt"}
 )
 
-public class TestFailedRunner extends BaseTest {
+public class TestRunnerFailedRetry extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
-    public static String scenarioName;
 
     @BeforeClass(alwaysRun = true)
     public void setUpClass() {
@@ -36,12 +39,12 @@ public class TestFailedRunner extends BaseTest {
 
     @Test(groups = "cucumber", description = "Run Cucumber Features.", dataProvider = "scenarios")
     public void scenario(PickleWrapper pickleWrapper, FeatureWrapper featureWrapper) {
-        scenarioName = pickleWrapper.getPickle().getName();
         testNGCucumberRunner.runScenario(pickleWrapper.getPickle());
     }
 
     @AfterClass(alwaysRun = true)
-    public void tearDownClass() {
+    public void tearDownClass() throws IOException {
+        FileUtil.copyEnvironmentFileToAllureResultsFolder();
         testNGCucumberRunner.finish();
     }
 }
