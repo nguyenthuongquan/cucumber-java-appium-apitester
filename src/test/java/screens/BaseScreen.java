@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import utilities.Constants;
 
 import java.util.List;
 
@@ -13,9 +14,11 @@ public class BaseScreen {
     protected AndroidDriver<MobileElement> driver;
     protected WebDriverWait wait;
 
+
+
     public BaseScreen(AndroidDriver<MobileElement> driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Constants.IMPLICIT_WAIT);
     }
 
     protected void waitAndClick(By by) {

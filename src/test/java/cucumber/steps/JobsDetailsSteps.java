@@ -25,7 +25,7 @@ public class JobsDetailsSteps extends BaseSteps {
         candidateMainScreen.clickToJob(index);
     }
 
-    @Then("Candidate should see the jobs details")
+    @Then("verify candidate should see the jobs details")
     public void candidateShouldSeeTheJobsDetails() {
         jobScreen.assertToolBarTitleIsExpected();
     }
