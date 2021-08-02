@@ -1,0 +1,60 @@
+passColor: 00FF00
+failColor: FF0000
+skipColor: E6AD0D
+displayFeature: true
+displayScenario: true
+displayDetailed: true
+
+summaryConfig:
+  title: QA Regresion - Develop
+  dataBackgroundColor: 4F0CC8
+  titleColor: 000000
+  dateColor: 969696
+  timeColor: 0000FF
+  dial:
+    featureRanges: 60 95
+    scenarioRanges: 70 90
+    stepRanges: 75 85
+    badColor: FF0000
+    averageColor: E6AD0D
+    goodColor: 00FF00
+
+featureConfig:
+  #itemcount: 10
+  totalColor: 0000FF
+  durationColor: 000000
+
+scenarioConfig:
+  #itemcount: 12
+  totalColor: FF0000
+  durationColor: 000000
+
+detailedFeatureConfig:
+  featureNameColor: 0b5394
+  startEndTimeColor: 000000
+  tagColor: 404040
+  dataHeaderColor: FFFFFF
+  dataBackgroundColor: 404040
+  totalColor: FFFFFF
+  durationColor: FFFFFF
+  durationBackgroundColor: 404040
+
+detailedScenarioConfig:
+  featureNameColor: C0C0C0
+  scenarioNameColor: 000000
+  startEndTimeColor: 000000
+  tagColor: 404040
+  dataHeaderColor: FFFFFF
+  dataBackgroundColor: 404040
+  totalColor: FFFFFF
+  durationColor: FFFFFF
+  durationBackgroundColor: 404040
+  stepChartBarColor: 7f32a8
+
+detailedStepHookConfig:
+  stepTextColor: 0000FF
+  hookTextColor: 00FF00
+  durationColor: 000000
+  errorMsgColor: 000000
+  logMsgColor: 000000
+  #mediaMsgColor: FF0000

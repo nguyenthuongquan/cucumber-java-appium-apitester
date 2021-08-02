@@ -18,11 +18,13 @@ public class BaseTest {
     private final DesiredCapabilitiesUtil desiredCapabilitiesUtil = new DesiredCapabilitiesUtil();
     static ReadConfigFile readConfigFile = ConfigFactory.create(ReadConfigFile.class);
 
+
     @BeforeMethod
-    @Parameters({"udid", "platformVersion"})
-    public void setup(@Optional String udid, @Optional String platformVersion) throws IOException {
+    @Parameters({"udid", "platformVersion", "appiumServer"})
+    public void setup(@Optional String udid, @Optional String platformVersion, @Optional String appiumServer) throws IOException {
         DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(udid, platformVersion);
-        ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(readConfigFile.appiumServerURL()), caps));
+        if (appiumServer == null) appiumServer = readConfigFile.appiumServerURL();
+        ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
     }
 
     @AfterMethod()
