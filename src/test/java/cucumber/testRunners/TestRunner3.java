@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
@@ -13,18 +13,20 @@ import utilities.FileUtil;
 import java.io.IOException;
 
 @CucumberOptions(
-    features = "@target/failedRerun.txt",
-    glue = "cucumber.steps",
-    publish = true,
-    plugin = {
-            "pretty",
-            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-            "timeline:reports/thread/",
-            "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
-            "rerun:target/failedRerun.txt"}
+        //tags = "not @skip",
+        tags = "@Candidate3",
+        features = "src/test/java/cucumber/features",
+        glue = "cucumber.steps",
+        publish = true,
+        plugin = {
+                "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "timeline:reports/thread/",
+                "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
+                "rerun:target/failedRerun.txt"}
 )
 
-public class TestRunnerFailed extends BaseTest {
+public class TestRunner3 extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass(alwaysRun = true)

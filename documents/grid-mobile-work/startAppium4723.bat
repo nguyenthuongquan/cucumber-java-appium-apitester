@@ -1,0 +1,1 @@
+appium -p 4723 --nodeconfig C:\Selenium\grid-mobile-work\device-4723-foldable-8.json

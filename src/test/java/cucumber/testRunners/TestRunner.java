@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
@@ -10,11 +10,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utilities.FileUtil;
 
-
 import java.io.IOException;
 
 @CucumberOptions(
-        //tags = "not @skip",
+//        tags = "not @skip",
         features = "src/test/java/cucumber/features",
         glue = "cucumber.steps",
         publish = true,

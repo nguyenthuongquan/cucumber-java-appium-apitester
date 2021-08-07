@@ -1,0 +1,1 @@
+appium -p 4721 --nodeconfig C:\Selenium\grid-mobile-work\device-4721-samsung-s9-real.json

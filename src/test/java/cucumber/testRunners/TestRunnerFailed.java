@@ -1,4 +1,4 @@
-package cucumber.tests;
+package cucumber.testRunners;
 
 import io.cucumber.testng.CucumberOptions;
 import io.cucumber.testng.FeatureWrapper;
@@ -24,7 +24,7 @@ import java.io.IOException;
             "rerun:target/failedRerun.txt"}
 )
 
-public class TestRunnerFailedRetry extends BaseTest {
+public class TestRunnerFailed extends BaseTest {
     private TestNGCucumberRunner testNGCucumberRunner;
 
     @BeforeClass(alwaysRun = true)

@@ -2,10 +2,10 @@ package cucumber.steps;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import screens.CandidateMainScreen;
-import screens.JobScreen;
-import screens.SelectionScreen;
-import screens.SplashScreen;
+import cucumber.screens.CandidateMainScreen;
+import cucumber.screens.JobScreen;
+import cucumber.screens.SelectionScreen;
+import cucumber.screens.SplashScreen;
 
 public class BaseSteps {
     protected SplashScreen        splashScreen;
