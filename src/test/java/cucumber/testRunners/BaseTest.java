@@ -18,13 +18,20 @@ public class BaseTest {
     private final DesiredCapabilitiesUtil desiredCapabilitiesUtil = new DesiredCapabilitiesUtil();
     static ReadConfigFile readConfigFile = ConfigFactory.create(ReadConfigFile.class);
 
-
     @BeforeMethod
-    @Parameters({"udid", "platformVersion", "appiumServer"})
-    public void setup(@Optional String udid, @Optional String platformVersion, @Optional String appiumServer) throws IOException {
-        DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(udid, platformVersion);
+    @Parameters({"platform", "platformVersion", "udid", "appiumServer"})
+    public void setup(@Optional String platform, @Optional String platformVersion, @Optional String udid, @Optional String appiumServer) throws IOException {
+        if (platform == null) platform = readConfigFile.mobilePlatformName();
         if (appiumServer == null) appiumServer = readConfigFile.appiumServerURL();
-        ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
+        DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(platform, platformVersion, udid);
+
+        if (platform.equalsIgnoreCase("android"))
+            ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
+        else if (platform.equalsIgnoreCase("ios"))
+            ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
+        else
+            throw new UnsupportedOperationException("Invalid mobile platform name " + platform);
+
     }
 
     @AfterMethod()
