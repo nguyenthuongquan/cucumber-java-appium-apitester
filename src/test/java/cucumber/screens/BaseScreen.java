@@ -2,7 +2,6 @@ package cucumber.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -14,8 +13,6 @@ import java.util.List;
 public class BaseScreen {
     protected AppiumDriver<MobileElement> driver;
     protected WebDriverWait wait;
-
-
 
     public BaseScreen(AppiumDriver<MobileElement> driver) {
         this.driver = driver;

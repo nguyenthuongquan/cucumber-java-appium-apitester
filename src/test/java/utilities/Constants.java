@@ -2,7 +2,7 @@ package utilities;
 
 public class Constants {
     public static final int SHORT_WAIT = 5;
-    public static final int IMPLICIT_WAIT = 10;
+    public static final int IMPLICIT_WAIT = 15;
     public static final int PAGE_LOAD_TIMEOUT = 30;
     public static final int SCRIPT_TIMEOUT = 10;
 

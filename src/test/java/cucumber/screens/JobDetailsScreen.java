@@ -7,8 +7,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-public class JobScreen extends BaseScreen{
-    public JobScreen(AppiumDriver<MobileElement> driver) {
+public class JobDetailsScreen extends BaseScreen{
+    /**Constructor*/
+    public JobDetailsScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
 
@@ -16,8 +17,8 @@ public class JobScreen extends BaseScreen{
     By toolBarTitleBy   = By.id("com.isinolsun.app:id/toolbarTitle");
 
     /**Actions*/
-    public void assertToolBarTitleIsExpected() {
+    public boolean isToolBarTitleContains(String text) {
         String toolBarTitleStr = wait.until(ExpectedConditions.visibilityOfElementLocated(toolBarTitleBy)).getText();
-        Assert.assertTrue(toolBarTitleStr.toLowerCase().contains("detay"));
+        return toolBarTitleStr.toLowerCase().contains(text);
     }
 }
