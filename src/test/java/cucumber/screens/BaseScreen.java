@@ -3,20 +3,26 @@ package cucumber.screens;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import utilities.Constants;
 
+import java.time.Duration;
 import java.util.List;
 
 public class BaseScreen {
     protected AppiumDriver<MobileElement> driver;
-    protected WebDriverWait wait;
+    protected Wait<AppiumDriver> wait;
 
     public BaseScreen(AppiumDriver<MobileElement> driver) {
         this.driver = driver;
-        wait = new WebDriverWait(driver, Constants.IMPLICIT_WAIT);
+        wait = new FluentWait<AppiumDriver>(driver)
+                .withTimeout(Duration.ofSeconds(Constants.TIMEOUT))
+                .pollingEvery(Duration.ofMillis(100))
+                .ignoring(NoSuchElementException.class);
     }
 
     protected void waitAndClick(By by) {
