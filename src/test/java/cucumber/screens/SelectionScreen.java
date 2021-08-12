@@ -2,17 +2,27 @@ package cucumber.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.By;
+import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.FluentWait;
+import utilities.Constants;
+
+import java.time.Duration;
 
 public class SelectionScreen extends BaseScreen {
+
     public SelectionScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    /**Mobile Elements*/
-    By searchingJobBy = By.id("com.isinolsun.app:id/bluecollar_type_button");
+    @AndroidFindBy(id = "com.isinolsun.app:id/bluecollar_type_button")
+    @iOSXCUITFindBy(id = "poorQuanNoMacbook")
+    MobileElement btn_SearchingForAJob;
 
-    /**Actions*/
-    public void clickIamSearchingJob() { waitAndClick(searchingJobBy); }
+    public void clickSearchingForJobButton() {
+        waitAndClick(btn_SearchingForAJob);
+    }
 }

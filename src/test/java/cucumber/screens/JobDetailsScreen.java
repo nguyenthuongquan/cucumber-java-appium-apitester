@@ -5,20 +5,23 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class SplashScreen extends BaseScreen {
+public class JobDetailsScreen extends BaseScreen{
 
-    public SplashScreen(AppiumDriver<MobileElement> driver) {
+    public JobDetailsScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
         PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    @AndroidFindBy(id = "com.isinolsun.app:id/animation_view")
+    @AndroidFindBy(id = "com.isinolsun.app:id/toolbarTitle")
     @iOSXCUITFindBy(id = "poorQuanNoMacbook")
-    MobileElement btn_Welcome;
+    MobileElement lbl_ToolBarTitle;
 
-    public void clickWelcomeButton() {
-        waitAndClick(btn_Welcome);
+    public boolean isToolBarTitleContains(String text) {
+        String toolBarTitleStr = getText(lbl_ToolBarTitle);
+        return toolBarTitleStr.contains(text);
     }
 }
