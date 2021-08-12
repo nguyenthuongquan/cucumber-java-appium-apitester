@@ -10,19 +10,31 @@ import org.aeonbits.owner.Config.*;
         "classpath:environment.properties",
 })
 public interface ReadConfigFile extends Config {
+
     /*** File config.properties */
     @Config.Key("takeScreenshotForEveryStep") Boolean isScreenshotTakenForEveryStep();
     @Config.Key("takeScreenshotForVerificationStep") Boolean isScreenshotTakenForVerificationStep();
     @Config.Key("takeScreenshotWhenScenarioFails") Boolean isScreenshotTakenWhenScenarioFails();
-    @Config.Key("browserHeadless") Boolean isBrowserHeadless();
+    @Config.Key("browserHeadless") Boolean isBrowserHeadless(); //just for web
     String appiumServerURL();
-    String mobileAutomationName();
+    @Config.Key("noReset") Boolean isNoReset();
     String mobilePlatformName();
-    String mobilePlatformVersion();
-    String mobileDeviceName();
-    String mobileAppPath();
-    String mobileAppActivityName();
-    String mobileAppPackageName();
+    String mobileAutomationName();
+    String iosUdid();
+    String iosAutomationName();
+    String iosPlatformVersion();
+    String iosDeviceName();
+    String iosAppPath();
+
+    String androidUdid();
+    String androidAutomationName();
+    String androidPlatformVersion();
+    String androidDeviceName();
+    String androidAppPath();
+    String androidAppPackageName();
+    String androidAppActivityName();
+    @Config.Key("androidSkipUnlock") Boolean isAndroidSkipUnlock();
+
 
     /*** File cucumber.properties */
     @Config.Key("cucumber.publish.enabled") Boolean isCucumberPublishEnabled();

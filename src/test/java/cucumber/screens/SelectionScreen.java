@@ -1,11 +1,12 @@
 package cucumber.screens;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 
 public class SelectionScreen extends BaseScreen {
-    public SelectionScreen(AndroidDriver<MobileElement> driver) {
+    public SelectionScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
 

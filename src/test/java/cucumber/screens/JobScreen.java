@@ -1,5 +1,6 @@
 package cucumber.screens;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
@@ -7,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class JobScreen extends BaseScreen{
-    public JobScreen(AndroidDriver<MobileElement> driver) {
+    public JobScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
 

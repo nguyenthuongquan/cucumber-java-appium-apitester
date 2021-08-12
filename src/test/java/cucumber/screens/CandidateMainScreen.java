@@ -1,5 +1,6 @@
 package cucumber.screens;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import lombok.SneakyThrows;
@@ -7,7 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CandidateMainScreen extends BaseScreen {
-    public CandidateMainScreen(AndroidDriver<MobileElement> driver) {
+    public CandidateMainScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
     }
 
