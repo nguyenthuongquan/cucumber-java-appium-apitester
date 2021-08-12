@@ -34,8 +34,9 @@ public class BaseTest {
             throw new UnsupportedOperationException("Invalid mobile platform name " + platform);
     }
 
-    @AfterMethod()
+    @AfterMethod(alwaysRun = true)
     public synchronized void teardown() {
-        ThreadLocalDriver.getTLDriver().quit();
+        if ( ThreadLocalDriver.getTLDriver() != null)
+            ThreadLocalDriver.getTLDriver().quit();
     }
 }
