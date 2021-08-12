@@ -1,6 +1,8 @@
 package cucumber.testRunners;
 
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
@@ -24,14 +26,12 @@ public class BaseTest {
         if (platform == null) platform = readConfigFile.mobilePlatformName();
         if (appiumServer == null) appiumServer = readConfigFile.appiumServerURL();
         DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(platform, platformVersion, udid);
-
         if (platform.equalsIgnoreCase("android"))
-            ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
+            ThreadLocalDriver.setTLAndroidDriver(new AndroidDriver<>(new URL(appiumServer), caps));
         else if (platform.equalsIgnoreCase("ios"))
-            ThreadLocalDriver.setTLDriver(new AndroidDriver<>(new URL(appiumServer), caps));
+            ThreadLocalDriver.setTLIOSDriver(new IOSDriver<>(new URL(appiumServer), caps));
         else
             throw new UnsupportedOperationException("Invalid mobile platform name " + platform);
-
     }
 
     @AfterMethod()
