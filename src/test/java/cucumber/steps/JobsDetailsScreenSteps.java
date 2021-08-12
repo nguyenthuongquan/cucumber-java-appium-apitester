@@ -11,7 +11,7 @@ public class JobsDetailsScreenSteps {
 
     @Then("verify user should see info in Jobs Details screen")
     public void userShouldSeeTheJobsDetails() {
-        Assert.assertTrue(jobDetailsScreen.isToolBarTitleContains("detay"));
+        Assert.assertTrue(jobDetailsScreen.isToolBarTitleContains("Detay"));
     }
 
 

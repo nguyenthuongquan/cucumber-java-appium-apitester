@@ -2,46 +2,55 @@ package cucumber.screens;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
+import io.appium.java_client.pagefactory.*;
 import lombok.SneakyThrows;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+import java.util.Objects;
+
 public class MainScreen extends BaseScreen {
-    /**Constructor*/
+
     public MainScreen(AppiumDriver<MobileElement> driver) {
         super(driver);
+        PageFactory.initElements(new AppiumFieldDecorator(driver), this);
     }
 
-    /**Mobile Elements*/
-    By btn_locationPermission_WhileUsingTheApp = By.id("com.android.permissioncontroller:id/permission_allow_foreground_only_button");
-    By btn_locationPermission_OnlyThisTime = By.id("com.android.permissioncontroller:id/permission_allow_one_time_button");
-    By btn_locationPermission_Deny = By.id("com.android.permissioncontroller:id/permission_deny_button");
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_foreground_only_button")
+    @iOSXCUITFindBy(id = "poorQuanNoMacbook")
+    MobileElement btn_LocationPermission_WhileUsingTheApp;
 
-    By ls_jobs = By.id("com.isinolsun.app:id/rootRelativeView");
-    By profileIconBy = By.xpath("//android.widget.LinearLayout[4]/android.widget.ImageView");
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_allow_one_time_button")
+    @iOSXCUITFindBy(id = "poorQuanNoMacbook")
+    MobileElement btn_LocationPermission_OnlyThisTime;
 
-    /**Actions*/
-    @SneakyThrows
+    @AndroidFindBy(id = "com.android.permissioncontroller:id/permission_deny_button")
+    @iOSXCUITFindBy(id = "poorQuanNoMacbook")
+    MobileElement btn_LocationPermission_Deny;
+
+    By android_ls_jobs = By.id("com.isinolsun.app:id/rootRelativeView");
+    By ios_ls_jobs = By.id("poorQuanNoMacbook");
+
     public void clickOnJob(int index) {
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(ls_jobs)).get(index).click();
-        //Thread.sleep(4000); //Just Wait for a while
+        String platformName = driver.getPlatformName();
+        assert platformName != null;
+        if (platformName.equalsIgnoreCase("android"))
+            waitAndFindAllElements(android_ls_jobs).get(index).click();
+        else if (platformName.equalsIgnoreCase("ios"))
+            waitAndFindAllElements(ios_ls_jobs).get(index).click();
     }
 
     public void allowLocationPermissionWhileUsingTheApp() {
-        if (wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_WhileUsingTheApp)).isDisplayed()) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_WhileUsingTheApp)).click();
-        }
+        clickIfDisplayed(btn_LocationPermission_WhileUsingTheApp);
     }
 
     public void allowLocationPermissionOnlyThisTime() {
-        if (wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_OnlyThisTime)).isDisplayed()) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_OnlyThisTime)).click();
-        }
+        clickIfDisplayed(btn_LocationPermission_OnlyThisTime);
     }
 
     public void denyLocationPermission() {
-        if (wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_Deny)).isDisplayed()) {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(btn_locationPermission_Deny)).click();
-        }
+        clickIfDisplayed(btn_LocationPermission_Deny);
     }
 }
