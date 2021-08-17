@@ -47,7 +47,6 @@ public class BaseScreen {
         }
     }
 
-
     protected void hideKeyboard() {
         driver.navigate().back();
     }

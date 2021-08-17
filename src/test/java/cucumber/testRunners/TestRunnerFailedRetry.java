@@ -13,15 +13,15 @@ import utilities.FileUtil;
 import java.io.IOException;
 
 @CucumberOptions(
-    features = "@target/failedRerun.txt",
-    glue = "cucumber.steps",
-    publish = true,
-    plugin = {
-            "pretty",
-            "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
-            "timeline:reports/thread/",
-            "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
-            "rerun:target/failedRerun.txt"}
+        features = "@target/failedRerun.txt",
+        glue = "cucumber.steps",
+        publish = true,
+        plugin = {
+                "pretty",
+                "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
+                "timeline:reports/thread/",
+                "io.qameta.allure.cucumber6jvm.AllureCucumber6Jvm",
+                "rerun:target/failedRerun.txt"}
 )
 
 public class TestRunnerFailedRetry extends BaseTest {

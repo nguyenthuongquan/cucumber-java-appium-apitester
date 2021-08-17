@@ -1,0 +1,13 @@
+1.- Start Grid 1 device  --> Just run file 0.StartGridHubAndIts1Node
+  - Start Grid 4 devices --> Just run file 0.StartGridHubAndIts4Nodes
+ 
+2. The QuanDell laptop ip = localhost = 192.168.2.48. The port is using = 4444
+
+3. If the port 4444 is busy --> kill port --> netstat -aon | findstr 4444 --> taskkill /PID 19464 /F
+
+4. Launch Grid to check: 
+- http://192.168.2.48:4444/grid/console
+- http://localhost:4444/grid/console
+
+Ref: https://www.guru99.com/introduction-to-selenium-grid.html
+

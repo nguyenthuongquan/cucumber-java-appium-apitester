@@ -18,7 +18,6 @@ public class ThreadLocalDriver {
         tlDriver.set(driver);
     }
 
-
     public static synchronized AppiumDriver<MobileElement> getTLDriver() {
         if (platform.equalsIgnoreCase("android"))
             return getTLAndroidDriver();

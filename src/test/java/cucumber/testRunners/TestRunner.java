@@ -13,7 +13,7 @@ import utilities.FileUtil;
 import java.io.IOException;
 
 @CucumberOptions(
-//        tags = "not @skip",
+        //tags = "not @skip",
         features = "src/test/java/cucumber/features",
         glue = "cucumber.steps",
         publish = true,

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>cucumber-java-appium-demo-testng</artifactId>
+    <artifactId>cucumber-java-appium</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -18,6 +18,7 @@
         <testng-version>7.4.0</testng-version>
         <lombok-version>1.18.20</lombok-version>
         <aspectj.version>1.8.10</aspectj.version>
+        <allure.version>2.14.0</allure.version>
     </properties>
 
     <dependencies>
@@ -170,8 +171,8 @@
                 <configuration>
                     <includes>
                         <include>**/TestRunner.java</include>
-                        <include>**/TestRunnerFailed.java</include>
-                        <include>**/TestRunnerFailedRetry.java</include>
+<!--                        <include>**/TestRunnerFailed.java</include>-->
+<!--                        <include>**/TestRunnerFailedRetry.java</include>-->
                     </includes>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
@@ -191,6 +192,16 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>2.10.0</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                    <allureDownloadUrl>https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/${allure.version}/allure-commandline-${allure.version}.zip</allureDownloadUrl>
+                </configuration>
             </plugin>
         </plugins>
     </build>
