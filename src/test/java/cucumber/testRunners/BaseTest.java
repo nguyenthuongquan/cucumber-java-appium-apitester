@@ -23,9 +23,14 @@ public class BaseTest {
     @BeforeMethod
     @Parameters({"platform", "platformVersion", "udid", "appiumServer"})
     public void setup(@Optional String platform, @Optional String platformVersion, @Optional String udid, @Optional String appiumServer) throws IOException {
-        if (platform == null) platform = readConfigFile.mobilePlatformName();
-        if (appiumServer == null) appiumServer = readConfigFile.appiumServerURL();
+        if (platform == null)
+            platform = readConfigFile.mobilePlatformName();
+
+        if (appiumServer == null)
+            appiumServer = readConfigFile.appiumServerURL();
+
         DesiredCapabilities caps = desiredCapabilitiesUtil.getDesiredCapabilities(platform, platformVersion, udid);
+
         if (platform.equalsIgnoreCase("android"))
             ThreadLocalDriver.setTLAndroidDriver(new AndroidDriver<>(new URL(appiumServer), caps));
         else if (platform.equalsIgnoreCase("ios"))

@@ -14,7 +14,7 @@ import java.io.IOException;
 
 @CucumberOptions(
         //tags = "not @skip",
-        tags = "@Candidate4",
+        tags = "@Candidate4", //Test runner4 run batch 4
         features = "src/test/java/cucumber/features",
         glue = "cucumber.steps",
         publish = true,
