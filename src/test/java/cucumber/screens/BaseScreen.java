@@ -82,4 +82,14 @@ public class BaseScreen {
     protected void sendKey(MobileElement element, String text) {
         waitAndFindElement(element).sendKeys(text);
     }
+
+    protected Boolean isDisplayed(MobileElement element) {
+        if (element.isDisplayed()) {
+            System.out.println("Element is displayed.");
+            return true;
+        } else {
+            System.out.println("Element is not displayed.");
+            return false;
+        }
+    }
 }
