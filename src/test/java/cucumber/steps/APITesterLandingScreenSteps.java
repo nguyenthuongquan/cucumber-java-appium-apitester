@@ -77,4 +77,10 @@ public class APITesterLandingScreenSteps {
     public void verifyUserShouldSeeItem(String optionName) {
         apiTesterLandingScreen.isSpecificOptionDisplayed(optionName);
     }
+
+    @Then("user taps on {string} item")
+    public void userTapsOnItem(String text) {
+        apiTesterLandingScreen.clickSpecificItem(text);
+    }
+
 }

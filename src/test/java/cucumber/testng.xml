@@ -1,45 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Android-Test-Suite" parallel="tests" thread-count="5">
+<suite name="Android-Test-Suite" parallel="tests" thread-count="4">
 
-    <test name="5552-Samsung-S9-Plus">
+    <test name="5554-Nexus-6">
         <parameter name="platform" value="android"/>
-        <parameter name="platformVersion" value="10"/>
-        <parameter name="udid" value="192.168.2.93:5552"/> <!-- This is devices name when 'adb devices'-->
-        <parameter name="appiumServer" value="http://192.168.2.48:5552/wd/hub"/>
+        <parameter name="platformVersion" value="11"/>
+        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="appiumServer" value="http://192.168.2.48:5554/"/>
         <classes>
             <class name="cucumber.testRunners.TestRunner1"/>
         </classes>
     </test>
 
-    <test name="5554-Google-Pixel">
+    <test name="5556-Nexus-9">
         <parameter name="platform" value="android"/>
         <parameter name="platformVersion" value="11"/>
-        <parameter name="udid" value="emulator-5554"/>
-        <parameter name="appiumServer" value="http://192.168.2.48:5554/wd/hub"/>
+        <parameter name="udid" value="emulator-5556"/>
+        <parameter name="appiumServer" value="http://192.168.2.48:5556/"/>
         <classes>
             <class name="cucumber.testRunners.TestRunner2"/>
         </classes>
     </test>
 
-    <test name="5556-Nexus-6">
-        <parameter name="platform" value="android"/>
-        <parameter name="platformVersion" value="11"/>
-        <parameter name="udid" value="emulator-5556"/>
-        <parameter name="appiumServer" value="http://192.168.2.48:5556/wd/hub"/>
-        <classes>
-            <class name="cucumber.testRunners.TestRunner3"/>
-        </classes>
-    </test>
-
-    <test name="5558-Nexus-9">
+    <test name="5558-GooglePixel-XL">
         <parameter name="platform" value="android"/>
         <parameter name="platformVersion" value="11"/>
         <parameter name="udid" value="emulator-5558"/>
-        <parameter name="appiumServer" value="http://192.168.2.48:5558/wd/hub"/>
+        <parameter name="appiumServer" value="http://192.168.2.48:5558/"/>
         <classes>
-            <class name="cucumber.testRunners.TestRunner4"/>
+            <class name="cucumber.testRunners.TestRunner3"/>
         </classes>
     </test>
 
@@ -47,10 +37,20 @@
         <parameter name="platform" value="android"/>
         <parameter name="platformVersion" value="11"/>
         <parameter name="udid" value="emulator-5560"/>
-        <parameter name="appiumServer" value="http://192.168.2.48:5560/wd/hub"/>
+        <parameter name="appiumServer" value="http://192.168.2.48:5560/"/>
         <classes>
-            <class name="cucumber.testRunners.TestRunner5"/>
+            <class name="cucumber.testRunners.TestRunner4"/>
         </classes>
     </test>
+
+    <!--    <test name="5552-Samsung-S9-Plus">-->
+    <!--        <parameter name="platform" value="android"/>-->
+    <!--        <parameter name="platformVersion" value="10"/>-->
+    <!--        <parameter name="udid" value="192.168.2.93:5552"/> &lt;!&ndash; This is devices name when 'adb devices'&ndash;&gt;-->
+    <!--        <parameter name="appiumServer" value="http://192.168.2.48:5552/wd/hub"/>-->
+    <!--        <classes>-->
+    <!--            <class name="cucumber.testRunners.TestRunner1"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 
 </suite>
