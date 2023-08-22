@@ -27,11 +27,9 @@ public class APITesterLandingScreen extends BaseScreen {
     @iOSXCUITFindBy(id = "poorQuanNoMacbook")
     MobileElement ico_MoreOptions;
 
-    private static final String desiredText = "Run all requests";
-    @AndroidFindBy(xpath = "//*[contains(@text, '" + desiredText + "')]")
+    @AndroidFindBy(xpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[2]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[4]/android.widget.ImageView")
     @iOSXCUITFindBy(id = "poorQuanNoMacbook")
-    MobileElement lbl_option_RunAllRequests;
-
+    MobileElement ico_AddRequest;
 
     By android_lbl_optionItem(String optionName) {
         return By.xpath("//*[contains(@text, '" + optionName + "')]");
@@ -51,19 +49,29 @@ public class APITesterLandingScreen extends BaseScreen {
         return false;
     }
 
+    public void clickSpecificItem(String itemText) {
+        String platformName = driver.getPlatformName();
+        assert platformName != null;
+        if (platformName.equalsIgnoreCase("android"))
+            waitAndFindElement(android_lbl_optionItem(itemText)).click();
+        else if (platformName.equalsIgnoreCase("ios"))
+            waitAndFindElement(ios_lbl_optionItem(itemText)).click();
+    }
+
     public void clickTopSettingsIcon() {
         waitAndClick(ico_TopSettings);
     }
-
     public void clickMoreOptionsIcon() {
         waitAndClick(ico_MoreOptions);
     }
 
+    public void clickAddRequestIcon() {
+        waitAndClick(ico_AddRequest);
+    }
+
     public boolean isTopSettingsIconDisplayed() {return ico_TopSettings.isDisplayed();}
-
     public boolean isTopSearchBoxDisplayed() {return ico_TopSearchBox.isDisplayed();}
-
     public boolean isMoreOptionIconDisplayed() {return ico_MoreOptions.isDisplayed();}
+    public boolean isAddRequestsIconDisplayed() {return ico_AddRequest.isDisplayed();}
 
-    public boolean isMoreOptionRunAllRequestDisplayed() {return lbl_option_RunAllRequests.isDisplayed();}
 }
