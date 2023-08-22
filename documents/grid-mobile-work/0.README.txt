@@ -1,4 +1,4 @@
-1.- Start Grid 1 device  --> Just run file 0.StartGridHubAndIts1Node
+1.- Start Grid 1 device  --> Just run file 0.StartGridHubAndIts1Node-port5554
   - Start Grid 4 devices --> Just run file 0.StartGridHubAndIts4Nodes
  
 2. The QuanDell laptop ip = localhost = 192.168.2.48. The port is using = 4444

@@ -1,0 +1,1 @@
+appium -p 5554 --nodeconfig C:\Selenium\grid-mobile-work\device-5554-Nexus-6.json

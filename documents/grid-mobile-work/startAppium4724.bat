@@ -1,1 +1,0 @@
-appium -p 4724 --nodeconfig C:\Selenium\grid-mobile-work\device-4724-pixel-xl-white.json

@@ -17,7 +17,7 @@
     Scenario: TC-006 User should see Add request icon in top of Landing screen
       Then verify user should see Add request icon in top of Landing screen
 
-    @APITester-007 @NightlyRegression
+    @APITester-007 @NightlyRegression @Suite1
     Scenario: TC-007 User should see info in More Option panel in top of Landing screen
       Given verify user should see More Option icon in top of Landing screen
       When user taps on More Option icon in top of Landing screen
@@ -27,7 +27,7 @@
       Then verify user should see option "New Collection" in More Option panel
       Then verify user should see option "Delete all requests" in More Option panel
 
-    @APITester-008 @NightlyRegression
+    @APITester-008 @NightlyRegression @Suite2
     Scenario: TC-008 User should see info in Setting panel in top of Landing screen
       Given verify user should see More Option icon in top of Landing screen
       When user taps on Setting icon in top of APITester Landing screen
@@ -38,12 +38,12 @@
       Then verify user should see item "Report a bug" in Settings panel
       Then verify user should see item "More great tools" in Settings panel
 
-    @APITester-009 @NightlyRegression
+    @APITester-009 @NightlyRegression @Suite3
     Scenario: TC-009 User should see New Request panel in Landing screen
       When user taps on "Create new request" item
       Then verify user should see item "Create new request"
 
-    @APITester-010 @NightlyRegression
+    @APITester-010 @NightlyRegression @Suite1
     Scenario: TC-010 User should see Request example in Landing screen
       When user taps on "examples" item
       Then verify user should see item "Request"

@@ -1,0 +1,1 @@
+appium -p 5558 --nodeconfig C:\Selenium\grid-mobile-work\device-5558-Google-Pixel-XL.json
