@@ -38,4 +38,5 @@
 - (This is not good for security because guys in netlify can read our report)
 - target > run cmd: npx allure generate --clean --> to generate allure-report
 - Drop 'allure-report' to [https://app.netlify.com/teams/nguyenthuongquan/overview](https://app.netlify.com/teams/nguyenthuongquan/overview)
-- Share the link to others
+- E.g we will have: https://courageous-eclair-173d64.netlify.app/
+- Share the link with others
